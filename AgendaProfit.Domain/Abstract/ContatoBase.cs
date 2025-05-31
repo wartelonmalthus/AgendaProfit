@@ -1,4 +1,4 @@
-﻿namespace AgendaProfit.Domain.Entities.Abstract;
+﻿namespace AgendaProfit.Domain.Abstract;
 
 public abstract class ContatoBase : BaseEntity
 {
@@ -6,16 +6,15 @@ public abstract class ContatoBase : BaseEntity
     public string Email { get; private set; }
     public string Telefone { get; private set; }
 
-
-    public void AlterarDados(string? nome,  string? email, string? telefone)
+    public void AlterarDados(string? nome, string? email, string? telefone)
     {
-       if(nome is not null) 
+        if (nome is not null)
             Nome = nome;
 
-       if(email is not null) 
+        if (email is not null)
             Email = email;
 
-       if(telefone is not null) 
+        if (telefone is not null)
             Telefone = telefone;
     }
 }

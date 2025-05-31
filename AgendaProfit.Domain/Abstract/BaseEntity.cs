@@ -1,4 +1,4 @@
-﻿namespace AgendaProfit.Domain.Entities;
+﻿namespace AgendaProfit.Domain.Abstract;
 
 public abstract class BaseEntity
 {

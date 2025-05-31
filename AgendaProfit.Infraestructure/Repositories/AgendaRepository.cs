@@ -1,7 +1,9 @@
 ﻿using AgendaProfit.Domain.Entities;
 using AgendaProfit.Infraestructure.Context;
-using AgendaProfit.Infraestructure.Interfaces;
+using AgendaProfit.Infraestructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
+using X.PagedList.EntityFramework;
 
 namespace AgendaProfit.Infraestructure.Repositories;
 
@@ -9,9 +11,13 @@ public class AgendaRepository(AgendaDbContext context) : BaseRepository<Agenda>(
 {
     private readonly AgendaDbContext _context = context;
 
-    public async Task<IEnumerable<Agenda>> ObterAgendaComContatosAsync()
+    public async Task<IPagedList<Agenda>> ObterAgendaComContatosPaginadaAsync(int numeroDaPagina = 1, int tamanhoDaPagina = 10)
     {
-        return await _context.Agendas.Include(a => a.Contatos).ToListAsync();
+        return await _context.Agendas
+         .Include(a => a.Contatos)
+         .OrderBy(a => a.Nome) 
+         .ToPagedListAsync(numeroDaPagina, tamanhoDaPagina);
+
 
     }
     public async override Task<Agenda> ObterPorIdDetalhadoAsync(int id)

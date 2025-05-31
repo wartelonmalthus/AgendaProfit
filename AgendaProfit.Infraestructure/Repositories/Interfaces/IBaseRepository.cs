@@ -1,4 +1,4 @@
-﻿namespace AgendaProfit.Infraestructure.Interfaces;
+﻿namespace AgendaProfit.Infraestructure.Repositories.Interfaces;
 
 public interface IBaseRepository<T> where T : class
 {

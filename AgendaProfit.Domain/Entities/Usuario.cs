@@ -1,4 +1,4 @@
-﻿using AgendaProfit.Domain.Entities.Abstract;
+﻿using AgendaProfit.Domain.Abstract;
 
 namespace AgendaProfit.Domain.Entities;
 

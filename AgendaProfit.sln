@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaProfit.Api", "AgendaProfit\AgendaProfit.Api.csproj", "{1AEF1A46-431C-4511-BF82-7196C93A54EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaProfit.Api", "AgendaProfit\AgendaProfit.Api.csproj", "{1AEF1A46-431C-4511-BF82-7196C93A54EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaProfit.Domain", "AgendaProfit.Domain\AgendaProfit.Domain.csproj", "{5B733346-3C66-48A2-A01C-6D8CD6DF4661}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaProfit.Domain", "AgendaProfit.Domain\AgendaProfit.Domain.csproj", "{5B733346-3C66-48A2-A01C-6D8CD6DF4661}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaProfit.Infraestructure", "AgendaProfit.Infraestructure\AgendaProfit.Infraestructure.csproj", "{D303852E-E85F-4C69-A876-603B8628D026}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaProfit.Infraestructure", "AgendaProfit.Infraestructure\AgendaProfit.Infraestructure.csproj", "{D303852E-E85F-4C69-A876-603B8628D026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaProfit.Service", "AgendaProfit.Services\AgendaProfit.Service.csproj", "{13B26F94-60BA-4BD7-B00B-1DE2FEACE684}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaProfit.Application", "AgendaProfit.Application\AgendaProfit.Application.csproj", "{A8DC22AA-F6A7-4B15-9D66-ADDC2901432C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{D303852E-E85F-4C69-A876-603B8628D026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D303852E-E85F-4C69-A876-603B8628D026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D303852E-E85F-4C69-A876-603B8628D026}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13B26F94-60BA-4BD7-B00B-1DE2FEACE684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13B26F94-60BA-4BD7-B00B-1DE2FEACE684}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13B26F94-60BA-4BD7-B00B-1DE2FEACE684}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13B26F94-60BA-4BD7-B00B-1DE2FEACE684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8DC22AA-F6A7-4B15-9D66-ADDC2901432C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8DC22AA-F6A7-4B15-9D66-ADDC2901432C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8DC22AA-F6A7-4B15-9D66-ADDC2901432C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8DC22AA-F6A7-4B15-9D66-ADDC2901432C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

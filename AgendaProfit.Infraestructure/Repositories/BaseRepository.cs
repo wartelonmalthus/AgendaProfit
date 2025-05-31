@@ -1,11 +1,11 @@
-﻿using AgendaProfit.Domain.Entities;
+﻿using AgendaProfit.Domain.Abstract;
 using AgendaProfit.Infraestructure.Context;
-using AgendaProfit.Infraestructure.Interfaces;
+using AgendaProfit.Infraestructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace AgendaProfit.Infraestructure.Repositories;
 
-public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
+public abstract class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 {
     private readonly AgendaDbContext _context;
     private readonly DbSet<T> _dbSet;
