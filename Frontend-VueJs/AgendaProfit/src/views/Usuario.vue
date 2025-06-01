@@ -1,7 +1,7 @@
 <template>
   <div class="topo">
     <h2>Usuários</h2>
-    <Button label="Adicionar" icon="pi pi-plus" @click="modalAberto = true" />
+    <Button label="Adicionar"  raised icon="pi pi-plus" @click="modalAberto = true" />
   </div>
 
   <TabelaGenerica :dados="usuarios" :colunas="colunas" @editar="editarUsuario" @excluir="excluirUsuario" />

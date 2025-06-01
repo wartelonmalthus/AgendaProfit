@@ -9,11 +9,13 @@ export const agendaService = {
   },
 
   async adicionarAgenda(agenda: AgendaCreateRequest) {
-      await http.post('/api/Agenda', agenda)
-  },
+      const response = await http.post('/api/Agenda', agenda)
+      return response.data
 
+  },
   async removerAgenda(id: number){
-    await http.delete(`/api/Agenda/${id}`)
+     const response =  await http.delete(`/api/Agenda/${id}`)
+     return response.data
   },
      
   async atualizarAgenda(agenda: any){

@@ -34,7 +34,7 @@ const items = [
   flex: 0 0 20%;
   max-width: 20%;
   min-width: 200px;
-  background-color: #00204b;
+  background-color: #020617;
   color: white;
   padding: 16px;
   height: 100%;

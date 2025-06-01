@@ -3,8 +3,8 @@
     <Column v-for="col in colunas" :key="col.field" :field="col.field" :header="col.header" />
     <Column header="Ações">
       <template #body="slotProps">
-        <Button icon="pi pi-pencil" @click="emit('editar', slotProps.data)" />
-        <Button icon="pi pi-trash" class="p-button-danger" @click="emit('excluir', slotProps.data)" />
+        <Button icon="pi pi-pencil" rounded variant="outlined"  @click="emit('editar', slotProps.data)" />
+        <Button icon="pi pi-trash"  rounded variant="outlined"  class="p-button-danger" @click="emit('excluir', slotProps.data)" />
       </template>
     </Column>
   </DataTable>

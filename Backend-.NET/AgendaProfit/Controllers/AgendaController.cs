@@ -57,7 +57,7 @@ namespace AgendaProfit.Api.Controllers
             return NoContent();
         }
 
-        [HttpDelete()]
+        [HttpDelete("{id}")]
         [ProducesResponseType(204)]
         public async Task<IActionResult> DeletarAgenda(int id)
         {
