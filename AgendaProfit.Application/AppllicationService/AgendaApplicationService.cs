@@ -1,34 +1,85 @@
 ﻿using AgendaProfit.Application.AppllicationService.Interfaces;
+using AgendaProfit.Application.Mapper;
 using AgendaProfit.Application.ViewModel.Agenda.Request;
 using AgendaProfit.Application.ViewModel.Agenda.Responses;
-using AgendaProfit.Infraestructure.Repositories;
+using AgendaProfit.Infraestructure.Repositories.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace AgendaProfit.Application.AppllicationService;
-public class AgendaApplicationService(AgendaRepository agendaRepository, IMemoryCache memoryCache)  : BaseApplicationService(memoryCache), IAgendaApplicationService
+public class AgendaApplicationService(IAgendaRepository agendaRepository, IMemoryCache memoryCache)  : BaseApplicationService(memoryCache), IAgendaApplicationService
 {
-    public Task<(bool, string)> AddAgenda(CreateAgendaRequest createRequest)
+    private readonly IAgendaRepository _agendaRepository = agendaRepository;
+    public async Task<(bool, string)> AddAgenda(CreateAgendaRequest createRequest)
     {
-        throw new NotImplementedException();
-    }
+        try
+        {
+            await _agendaRepository.AdicionarAsync(createRequest.ToEntidade());
+            ClearCache();
 
-    public Task<(bool, string)> AlterarAgenda(UpdateAgendaRequest updateRequest)
-    {
-        throw new NotImplementedException();
+            return (true, null); 
+        }
+        catch (Exception ex)
+        {
+            return (false, ex.Message);
+        }
     }
+    public async Task<AgendaResponse?> ObterAgendaPorId(int id)
+    {
+        var agenda = await GetOrSetCacheAsync(
+                        $"agendaId:{id}",
+                        () => _agendaRepository.ObterPorIdAsync(id),
+                        TimeSpan.FromMinutes(20));
 
-    public Task<AgendaResponse> ObterAgendaPorId(int id)
-    {
-        throw new NotImplementedException();
+        return agenda.ToResponse();
     }
+    public async Task<IEnumerable<AgendaResponse?>> ObterTodasAgendas(int numeroDaPagina = 1, int tamanhoDaPagina = 10)
+    {
+        try
+        {
+            return (await _agendaRepository.ObterAgendaComContatosPaginadaAsync(numeroDaPagina, tamanhoDaPagina)).ToResponse();
 
-    public Task<IEnumerable<AgendaResponse>> ObterTodasAgendas(int numeroDaPagina = 1, int tamanhoDaPagina = 10)
-    {
-        throw new NotImplementedException();
-    }
+        }
+        catch (Exception ex)
+        {
 
-    public Task<(bool, string)> RemoverAgenda(int id)
-    {
-        throw new NotImplementedException();
+            throw;
+        }
     }
+    public async Task<(bool, string)> RemoverAgenda(int id)
+    {
+        try
+        {
+            await _agendaRepository.RemoverAsync(id);
+            ClearCache();
+
+            return (true, null);    
+        }
+        catch (Exception ex)
+        {
+            return (false, ex.Message);
+        }
+    }
+    public async Task<(bool, string)> AlterarAgenda(UpdateAgendaRequest updateRequest)
+    {
+        try
+        {
+            var agenda = await _agendaRepository.ObterPorIdAsync(updateRequest.Id);
+
+            if (agenda is null)
+                return (false, "agenda não encontrada");
+
+            if (updateRequest.Nome is not null)
+                agenda.AlterarNome(updateRequest.Nome);
+
+            await _agendaRepository.AlterarAsync(agenda);
+            ClearCache();
+
+            return (true, null);
+        }
+        catch (Exception ex)
+        {
+            return (false, ex.Message);
+        }
+    }
+      
 }

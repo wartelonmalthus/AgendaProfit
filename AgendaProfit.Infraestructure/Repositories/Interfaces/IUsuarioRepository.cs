@@ -5,6 +5,6 @@ namespace AgendaProfit.Infraestructure.Repositories.Interfaces;
 
 public interface IUsuarioRepository : IBaseRepository<Usuario>
 {
-    Task<IPagedList<Usuario>> ObterContatosPaginadaAsync(int numeroDaPagina = 1, int tamanhoDaPagina = 10);
+    Task<IPagedList<Usuario>> ObterUsuariosPaginadaAsync(int numeroDaPagina = 1, int tamanhoDaPagina = 10);
 
 }

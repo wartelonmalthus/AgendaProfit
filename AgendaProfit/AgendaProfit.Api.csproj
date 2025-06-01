@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AgendaProfit.Application\AgendaProfit.Application.csproj" />
     <ProjectReference Include="..\AgendaProfit.Infraestructure\AgendaProfit.Infraestructure.csproj" />
   </ItemGroup>
 

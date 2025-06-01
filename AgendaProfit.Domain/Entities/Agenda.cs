@@ -12,4 +12,9 @@ public class Agenda : BaseEntity
     {
         Nome = nome;
     }
+
+    public void AlterarNome(string nome)
+    {
+        Nome = nome;
+    }
 }

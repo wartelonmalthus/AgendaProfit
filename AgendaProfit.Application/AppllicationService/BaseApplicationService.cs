@@ -30,7 +30,8 @@ public abstract class BaseApplicationService
         }
     }
 
-    protected bool TryGetCache<T>(string key, out T value) => _memoryCache.TryGetValue(key, out value);
+    protected bool TryGetCache<T>(string key, out T value) =>
+        _memoryCache.TryGetValue(key, out value);
 
     protected void ClearCache()
     {
@@ -41,5 +42,18 @@ public abstract class BaseApplicationService
                 _memoryCache.Remove(key);
             }
         }
+    }
+
+    protected async Task<T> GetOrSetCacheAsync<T>(string key, Func<Task<T>> fetchFunc, TimeSpan? expiration = null)
+    {
+        if (TryGetCache<T>(key, out var value))
+            return value;
+
+        value = await fetchFunc();
+
+        if (value != null)
+            SetCache(key, value, expiration);
+
+        return value;
     }
 }
