@@ -32,6 +32,17 @@ var connectionString = builder.Configuration["DBConfig"];
 builder.Services.AddDbContext<AgendaDbContext>(options =>
        options.UseSqlServer(connectionString));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+
 
 var app = builder.Build();
 
@@ -47,5 +58,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("AllowAll");
 
 app.Run();

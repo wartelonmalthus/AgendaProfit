@@ -44,7 +44,7 @@ namespace AgendaProfit.Api.Controllers
             return NoContent();
         }
 
-        [HttpPut("{id}")]
+        [HttpPut()]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
         public async Task<IActionResult> AlterarAgenda([FromBody] UpdateAgendaRequest updateRequest)

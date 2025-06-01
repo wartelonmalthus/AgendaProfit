@@ -14,13 +14,14 @@ public class AgendaRepository(AgendaDbContext context) : BaseRepository<Agenda>(
     public async Task<IPagedList<Agenda>> ObterAgendaComContatosPaginadaAsync(int numeroDaPagina = 1, int tamanhoDaPagina = 10)
     {
         return await _context.Agendas
-         .Include(a => a.Contatos)
-         .OrderBy(a => a.Nome) 
-         .ToPagedListAsync(numeroDaPagina, tamanhoDaPagina);
+          .Where(a => !a.DelecaoLogica)
+          .Include(a => a.Contatos)
+          .OrderBy(a => a.Nome) 
+          .ToPagedListAsync(numeroDaPagina, tamanhoDaPagina);
     }
     public async override Task<Agenda> ObterPorIdDetalhadoAsync(int id)
     {
-        return await _context.Agendas.Include(a => a.Contatos).SingleOrDefaultAsync(c => c.Id == id);
+        return await _context.Agendas.Where(a => !a.DelecaoLogica).Include(a => a.Contatos).SingleOrDefaultAsync(c => c.Id == id);
 
     }
 

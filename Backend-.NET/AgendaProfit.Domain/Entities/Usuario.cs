@@ -8,10 +8,11 @@ public class Usuario : ContatoBase
     public int AgendaId { get; private set; }
     public Agenda? Agenda { get; private set; }
 
-    public Usuario(string nome, string email, string telefone, string senha)
+    public Usuario(string nome, string email, string telefone, string senha, int agendaId)
     {
 
         Senha = senha;
+        AgendaId = agendaId;
         AlterarDados(nome, email, telefone);
     }
 

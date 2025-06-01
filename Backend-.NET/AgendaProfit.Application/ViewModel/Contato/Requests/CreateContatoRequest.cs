@@ -17,7 +17,7 @@ public class CreateContatoRequest
     public string Email { get; set; }
 
     [Required(ErrorMessage = "O campo Telefone é obrigatório.")]
-    [RegularExpression(@"^\d{2} - 9\d{4}-\d{4}$", ErrorMessage = "O Telefone deve estar no formato XX - 9XXXX-XXXX.")]
+    [RegularExpression(@"^\d{2}9\d{8}$", ErrorMessage = "O Telefone deve conter DDD + número, ex: 81984422062.")]
     public string Telefone { get; set; }
 
     [StringLength(250, ErrorMessage = "A Descrição deve ter no máximo 250 caracteres.")]

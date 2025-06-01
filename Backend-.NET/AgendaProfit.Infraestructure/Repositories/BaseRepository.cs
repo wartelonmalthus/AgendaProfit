@@ -29,7 +29,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
         await _context.SaveChangesAsync();
     }
 
-    public async Task<T> ObterPorIdAsync(int id) => await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
+    public async Task<T> ObterPorIdAsync(int id) => await _dbSet.FirstOrDefaultAsync(x => x.Id == id && x.DelecaoLogica == false);
     public virtual async Task<T> ObterPorIdDetalhadoAsync(int id) => await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
     public async Task<IEnumerable<T>> ObterTudoAsync() => await _dbSet.Where(x => x.DelecaoLogica == false).ToListAsync();
 
