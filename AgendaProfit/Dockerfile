@@ -1,6 +1,4 @@
 ﻿# Etapa 1: build
-using static System.Net.WebRequestMethods;
-
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
