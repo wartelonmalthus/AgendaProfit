@@ -3,9 +3,9 @@ WORKDIR /src
 
 COPY ../ ./
 
-WORKDIR /src/AgendaProfit
-RUN dotnet restore
-RUN dotnet publish -c Release -o /app/publish
+RUN dotnet restore AgendaProfit.sln
+
+RUN dotnet publish AgendaProfit/AgendaProfit.Api.csproj -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
