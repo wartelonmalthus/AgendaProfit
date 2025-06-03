@@ -15,13 +15,13 @@ namespace AgendaProfit.Infraestructure.Migrations
                 name: "Agendas",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    TotalDeContatos = table.Column<int>(type: "int", nullable: true),
-                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataAlteracao = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DelecaoLogica = table.Column<bool>(type: "bit", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nome = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
+                    TotalDeContatos = table.Column<int>(type: "INTEGER", nullable: true),
+                    DataCriacao = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DataAlteracao = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DelecaoLogica = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,16 +32,16 @@ namespace AgendaProfit.Infraestructure.Migrations
                 name: "Contatos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Descricao = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: true),
-                    AgendaId = table.Column<int>(type: "int", nullable: false),
-                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataAlteracao = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DelecaoLogica = table.Column<bool>(type: "bit", nullable: false),
-                    Nome = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    Telefone = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Descricao = table.Column<string>(type: "TEXT", maxLength: 350, nullable: true),
+                    AgendaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    DataCriacao = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DataAlteracao = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DelecaoLogica = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Nome = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
+                    Email = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
+                    Telefone = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -58,16 +58,16 @@ namespace AgendaProfit.Infraestructure.Migrations
                 name: "Usuarios",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Senha = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    AgendaId = table.Column<int>(type: "int", nullable: false),
-                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataAlteracao = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DelecaoLogica = table.Column<bool>(type: "bit", nullable: false),
-                    Nome = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    Telefone = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Senha = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    AgendaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    DataCriacao = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DataAlteracao = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    DelecaoLogica = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Nome = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
+                    Email = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
+                    Telefone = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
